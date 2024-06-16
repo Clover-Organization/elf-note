@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v4/pgxpool"
 )
 
@@ -19,9 +20,12 @@ func (r *Repository) CreateUser(user *User) error {
 
 	fmt.Println(r.Conn)
 
+	user.ID = uuid.New()
+
 	_, err := r.Conn.Exec(
 		ctx,
-		"INSERT INTO users (username, email, password, profile_pic) VALUES ($1, $2, $3, $4)",
+		"INSERT INTO users (id, username, email, password, profile_pic) VALUES ($1, $2, $3, $4, $5)",
+		user.ID,
 		user.Username,
 		user.Email,
 		user.Password,

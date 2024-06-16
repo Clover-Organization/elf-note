@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/google/uuid"
 	"github.com/gofiber/fiber/v2"
 	"github.com/thepokenik/elf-note/internal/auth"
 	"github.com/thepokenik/elf-note/internal/db"
@@ -23,6 +24,8 @@ func Configure() {
 func registerUser(c *fiber.Ctx) error {
 
 	var user User
+
+	user.ID = uuid.New()
 
 	userData := c.FormValue("user")
 	if err := json.Unmarshal([]byte(userData), &user); err != nil {

@@ -1,11 +1,11 @@
 import { Button } from "./global/components/ui/button"
+import Home from "./pages/home/Home"
 
 function App(): JSX.Element {
 
   return (
     <>
-      <h1>Elf Note</h1>
-      <Button>Oi</Button>
+      <Home />
     </>
   )
 }

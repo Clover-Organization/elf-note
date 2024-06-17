@@ -7,7 +7,6 @@ import {
   useCommentById,
   useCommentItemContentState,
 } from '@udecode/plate-comments';
-import { formatDistance } from 'date-fns';
 
 import { CommentAvatar } from './comment-avatar';
 import { CommentMoreDropdown } from './comment-more-dropdown';
@@ -36,7 +35,7 @@ function CommentItemContent() {
         <h4 className="text-sm font-semibold leading-none">{user?.name}</h4>
 
         <div className="text-xs leading-none text-muted-foreground">
-          {formatDistance(comment.createdAt, Date.now())} ago
+          {/* {formatDistance(comment.createdAt, Date.now())} ago */}
         </div>
 
         {isMyComment && (

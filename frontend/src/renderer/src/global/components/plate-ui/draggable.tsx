@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 import type { DropTargetMonitor } from 'react-dnd';
@@ -20,7 +18,7 @@ import {
 } from '@udecode/plate-dnd';
 import { blockSelectionActions } from '@udecode/plate-selection';
 
-import { Icons } from '@/components/icons';
+import { Icons } from './Icons';
 
 import {
   Tooltip,

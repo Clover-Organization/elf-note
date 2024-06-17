@@ -1,12 +1,10 @@
-'use client';
-
 import * as React from 'react';
 
 import * as ToolbarPrimitive from '@radix-ui/react-toolbar';
 import { cn, withCn, withRef, withVariants } from '@udecode/cn';
 import { type VariantProps, cva } from 'class-variance-authority';
 
-import { Icons } from '@/components/icons';
+import { Icons } from './Icons';
 
 import { Separator } from './separator';
 import { withTooltip } from './tooltip';

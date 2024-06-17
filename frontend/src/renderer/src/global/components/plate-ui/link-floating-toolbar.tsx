@@ -19,7 +19,7 @@ import {
   useFloatingLinkInsertState,
 } from '@udecode/plate-link';
 
-import { Icons } from '@/components/icons';
+import { Icons } from './Icons';
 
 import { buttonVariants } from './button';
 import { inputVariants } from './input';

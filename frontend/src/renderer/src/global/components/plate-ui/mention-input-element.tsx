@@ -4,7 +4,6 @@ import { cn, withRef } from '@udecode/cn';
 import { PlateElement } from '@udecode/plate-common';
 import { getMentionOnSelectItem } from '@udecode/plate-mention';
 
-import { MENTIONABLES } from '@/lib/plate/demo/values/mentionables';
 
 import {
   InlineCombobox,
@@ -15,6 +14,12 @@ import {
 } from './inline-combobox';
 
 const onSelectItem = getMentionOnSelectItem();
+
+const MENTIONABLES = [
+  { key: '1', text: 'John Doe' },
+  { key: '2', text: 'Jane Doe' },
+  { key: '3', text: 'John Smith' },
+];
 
 export const MentionInputElement = withRef<typeof PlateElement>(
   ({ className, ...props }, ref) => {

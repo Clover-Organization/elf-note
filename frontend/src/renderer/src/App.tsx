@@ -1,4 +1,3 @@
-import { Button } from "./global/components/ui/button"
 import Home from "./pages/home/Home"
 
 function App(): JSX.Element {
@@ -10,4 +9,4 @@ function App(): JSX.Element {
   )
 }
 
-export default App
+export default App;

@@ -14,13 +14,11 @@ export function ModeToggle() {
           onClick={() => {
             if (theme === 'dark') {
               setTheme('light');
-              console.log(theme);
             } else {
               setTheme('dark');
-              console.log(theme);
             }
           }}
-          variant="outline"
+          variant="ghost"
           size="icon"
         >
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all text-primary dark:-rotate-90 dark:scale-0" />

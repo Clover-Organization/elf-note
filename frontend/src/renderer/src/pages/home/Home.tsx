@@ -102,12 +102,10 @@ export function Home() {
             </aside>
             <div className="flex flex-col">
                 <main className="grid flex-1 gap-4 w-full h-full">
-                    <MonacoEditor language='java' 
-                    value={`public class Main{
-    public static void main(){
-
-    }
-}`} />
+                    <MonacoEditor language='python' value={`print("")
+while True:
+    print("Hello, World!")
+    `} />
                 </main>
             </div>
         </div>

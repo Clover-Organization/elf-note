@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useTheme } from '@renderer/global/components/theme-provider';
 import { monaco } from './components/utils/monacoConfig/monaco.config';
+import { setupKeybindings } from './components/utils/monacoKeybindings/monacoKeybindings';
 
 interface MonacoEditorProps {
     language: string;
@@ -57,8 +58,8 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange =
                     onChange(monacoEditor.getValue());
                 }
             });
+            setupKeybindings(monacoEditor);
         }
-
         return () => {
             if (monacoEditor) {
                 monacoEditor.dispose();

@@ -1,12 +1,8 @@
 /* eslint-disable prettier/prettier */
-// MonacoEditor.tsx
 
 import React, { useRef, useEffect } from 'react';
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { useTheme } from '@renderer/global/components/theme-provider';
-
-import 'monaco-editor/esm/vs/basic-languages/java/java.contribution';
-import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
+import { monaco } from './components/utils/monacoConfig/monaco.config';
 
 interface MonacoEditorProps {
     language: string;
@@ -18,16 +14,26 @@ const defaultOnChange = (value: string): void => {
     console.log(value);
 };
 
-
 /**
  * A custom Monaco Editor component.
- * @param language - The language mode for the editor.
- * @param value - The initial value of the editor.
- * @param onChange - The callback function to be called when the content of the editor changes.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.language - The language mode for the editor.
+ * @param {string} props.value - The initial value of the editor.
+ * @param {function} [props.onChange] - The callback function to be called when the editor content changes.
+ * @returns {JSX.Element} The rendered Monaco Editor component.
  */
 const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange = defaultOnChange }) => {
     const { theme, setTheme } = useTheme();
-    const setEditorTheme = (theme: string):void => {
+
+    /**
+     * Sets the theme of the Monaco Editor.
+     *
+     * @param {string} theme - The theme to be set.
+     * @returns {void}
+     */
+    const setEditorTheme = (theme: string): void => {
         monaco.editor.setTheme(theme);
     };
 
@@ -46,7 +52,6 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange =
                 automaticLayout: true,
             });
 
-            // Evento de mudança de conteúdo
             monacoEditor.onDidChangeModelContent(() => {
                 if (monacoEditor) {
                     onChange(monacoEditor.getValue());

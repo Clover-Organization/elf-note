@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 /**
  * Sets up keybindings for the Monaco editor.
  * 

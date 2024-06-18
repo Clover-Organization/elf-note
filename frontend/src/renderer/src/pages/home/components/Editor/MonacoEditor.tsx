@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import { useTheme } from '@renderer/global/components/theme-provider';
 import { setupKeybindings } from './components/utils/monacoKeybindings/monacoKeybindings';
@@ -25,7 +25,8 @@ const defaultOnChange = (value: string): void => {
  * @returns {JSX.Element} The rendered Monaco Editor component.
  */
 
-const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange = defaultOnChange }) => {
+const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange = defaultOnChange } : { language: string; value: string; onChange?: void | any; }): JSX.Element => {
+    
     const { theme, setTheme } = useTheme();
     const [editorTheme, setEditorTheme] = React.useState(theme === 'dark' ? 'vs-dark' : 'vs-light');
 

@@ -101,7 +101,7 @@ export function Home() {
                 </nav>
             </aside>
             <div className="flex flex-col">
-                <main className="grid flex-1 gap-4 overflow-auto p-4">
+                <main className="grid flex-1 gap-4 w-full h-full">
                     <MonacoEditor />
                 </main>
             </div>

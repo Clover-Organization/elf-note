@@ -24,7 +24,7 @@ const defaultOnChange = (value: string): void => {
  */
 const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange = defaultOnChange }) => {
     const { theme, setTheme } = useTheme();
-    const setEditorTheme = (theme: string) => {
+    const setEditorTheme = (theme: string):void => {
         monaco.editor.setTheme(theme);
     };
 
@@ -59,7 +59,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange =
         };
     }, [language, onChange, value]);
 
-    return <div ref={editorRef} style={{ width: '100%', height: '100%' }} />;
+    return <div ref={editorRef} />;
 };
 
 export default MonacoEditor;

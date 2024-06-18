@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import react from '@vitejs/plugin-react';
+import monacoEditorPlugin from './config/vite-plugin-monaco-editor';
 
 export default defineConfig({
   main: {
@@ -19,6 +20,9 @@ export default defineConfig({
     css: {
       postcss: './postcss.config.js',
     },
-    plugins: [react()]
+    plugins: [
+      react(),
+      monacoEditorPlugin()
+    ]
   }
 });

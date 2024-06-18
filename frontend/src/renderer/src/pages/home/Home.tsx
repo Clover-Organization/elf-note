@@ -12,7 +12,7 @@ import {
     SquareTerminal,
     SquareUser,
 } from "lucide-react";
-import MonacoEditor, { PlateEditor } from './components/Editor/MonacoEditor';
+import MonacoEditor from './components/Editor/MonacoEditor';
 
 export function Home() {
     return (

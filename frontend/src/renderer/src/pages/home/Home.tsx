@@ -102,9 +102,7 @@ export function Home() {
             </aside>
             <div className="flex flex-col">
                 <main className="grid flex-1 gap-4 overflow-auto p-4">
-                    <div className="relative flex h-full min-h-[50vh] flex-col rounded-xl bg-muted/50 p-4 lg:col-span-2">
-                        <MonacoEditor />
-                    </div>
+                    <MonacoEditor />
                 </main>
             </div>
         </div>

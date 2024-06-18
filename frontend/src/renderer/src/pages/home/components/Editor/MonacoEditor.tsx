@@ -1,26 +1,49 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect } from 'react';
-import * as monaco from 'monaco-editor';
+// MonacoEditor.tsx
 
-const MonacoEditor: React.FC = () => {
+import React, { useRef, useEffect } from 'react';
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+
+import MonacoEnvironment from './components/utils/MonacoEnvironment';
+
+interface MonacoEditorProps {
+    // Props do seu componente
+    language: string;
+    value: string;
+    onChange: (value: string) => void;
+}
+
+const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange }) => {
+    const editorRef = useRef<HTMLDivElement | null>(null);
+    let monacoEditor: monaco.editor.IStandaloneCodeEditor | null = null;
+
     useEffect(() => {
-        const editor = monaco.editor.create(document.getElementById('editor')!, {
-            value: `function hello() {
-  console.log('Hello, world!');
-}`,
-            language: 'javascript',
-            theme: 'vs-dark',
-            automaticLayout: true,
-        });
+        if (editorRef.current) {
+            // Configuração do editor
+            monacoEditor = monaco.editor.create(editorRef.current, {
+                value,
+                language,
+                automaticLayout: true,
+            });
+
+            // Evento de mudança de conteúdo
+            monacoEditor.onDidChangeModelContent(() => {
+                if (monacoEditor) {
+                    onChange(monacoEditor.getValue());
+                }
+            });
+        }
 
         return () => {
-            editor.dispose();
+            // Limpar o editor
+            if (monacoEditor) {
+                monacoEditor.dispose();
+                monacoEditor = null;
+            }
         };
-    }, []);
+    }, [language, onChange, value]);
 
-    return (
-        <div id="editor" style={{ width: '100%', height: '100%' }}></div>
-    );
+    return <div ref={editorRef} style={{ width: '100%', height: '100%' }} />;
 };
 
 export default MonacoEditor;

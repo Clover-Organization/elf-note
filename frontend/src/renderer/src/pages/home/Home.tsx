@@ -102,7 +102,12 @@ export function Home() {
             </aside>
             <div className="flex flex-col">
                 <main className="grid flex-1 gap-4 w-full h-full">
-                    <MonacoEditor />
+                    <MonacoEditor language='java' 
+                    value={`public class Main{
+    public static void main(){
+
+    }
+}`} />
                 </main>
             </div>
         </div>

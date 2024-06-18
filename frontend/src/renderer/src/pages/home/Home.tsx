@@ -11,12 +11,13 @@ import {
     Settings2,
     SquareTerminal,
     SquareUser,
+    X,
 } from "lucide-react";
 import MonacoEditor from './components/Editor/MonacoEditor';
 
 export function Home() {
     return (
-        <div className="grid h-screen w-full pl-[53px]">
+        <div className="grid h-screen w-full pl-[53px] overflow-hidden">
             <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
                 <div className="border-b p-[6px] grid place-items-center">
                     <Button variant="outline" size="icon" aria-label="Home">
@@ -100,14 +101,21 @@ export function Home() {
                     </Button>
                 </nav>
             </aside>
-            <div className="flex flex-col">
-                <main className="grid flex-1 gap-4 w-full h-full">
-                    <MonacoEditor language='python' value={`print("")
+            <main className="w-full h-full ml-1">
+                <nav className='flex'>
+                    <ul className='flex justify-between items-center p-1 bg-primary-foreground w-20'>
+                        <li className='text-sm truncate'>Main.py</li>
+                        <Button variant={"ghost"} size={'icon'} className='w-4 h-4'>
+                            <X width={12} className='text-gray-600' />
+                        </Button>
+                    </ul>
+                </nav>
+
+                <MonacoEditor language='python' value={`print("")
 while True:
     print("Hello, World!")
     `} />
-                </main>
-            </div>
+            </main>
         </div>
     )
 }

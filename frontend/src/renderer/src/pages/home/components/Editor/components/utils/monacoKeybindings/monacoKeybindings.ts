@@ -6,28 +6,23 @@
  * @param monaco - The Monaco object.
  */
 
-interface MonacoProps {
-    editor: any;
-    monaco: any;
-}
+export const setupKeybindings = (editor: any, monaco: any): void => {
 
-export const setupKeybindings: React.FC<MonacoProps> = (editor, monaco): void => {
-
-    editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
-        console.log('Saving document');
-    });
+    // editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
+    //     console.log('Saving document');
+    // });
 
     editor.addAction({
-        id: "format",
-        label: "Format",
+        id: "save",
+        label: "Save",
         keybindings: [
-            monaco.KeyMod.Alt | monaco.KeyMod.Shift | monaco.KeyCode.KeyF,
+            monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS,
         ],
-        contextMenuGroupId: "5_code_actions",
-        contextMenuOrder: 5,
+        contextMenuGroupId: "0_save_group",
+        contextMenuOrder: 0,
 
         run: editor => {
-            console.log('Formatting document');
+            console.log('File saved');
         }
     });
 };

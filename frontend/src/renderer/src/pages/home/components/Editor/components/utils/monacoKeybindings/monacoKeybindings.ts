@@ -1,15 +1,33 @@
 /* eslint-disable prettier/prettier */
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
-
 /**
  * Sets up keybindings for the Monaco editor.
  * 
- * @param monacoEditor - The Monaco editor instance.
+ * @param editor - The Monaco editor instance.
+ * @param monaco - The Monaco object.
  */
-export const setupKeybindings = (monacoEditor: monaco.editor.IStandaloneCodeEditor | null): void => {
-    if (!monacoEditor) return;
 
-    monacoEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
+interface MonacoProps {
+    editor: any;
+    monaco: any;
+}
+
+export const setupKeybindings: React.FC<MonacoProps> = (editor, monaco): void => {
+
+    editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
         console.log('Saving document');
+    });
+
+    editor.addAction({
+        id: "format",
+        label: "Format",
+        keybindings: [
+            monaco.KeyMod.Alt | monaco.KeyMod.Shift | monaco.KeyCode.KeyF,
+        ],
+        contextMenuGroupId: "5_code_actions",
+        contextMenuOrder: 5,
+
+        run: editor => {
+            console.log('Formatting document');
+        }
     });
 };

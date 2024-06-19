@@ -36,7 +36,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange =
 
     return (
         <Editor
-         
+            width={"98vw"}
             defaultLanguage={language}
             defaultValue={value}
             onChange={onChange}

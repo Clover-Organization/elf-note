@@ -25,8 +25,8 @@ const defaultOnChange = (value: string): void => {
  * @returns {JSX.Element} The rendered Monaco Editor component.
  */
 
-const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange = defaultOnChange } : { language: string; value: string; onChange?: void | any; }): JSX.Element => {
-    
+const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange = defaultOnChange }: { language: string; value: string; onChange?: void | any; }): JSX.Element => {
+
     const { theme, setTheme } = useTheme();
     const [editorTheme, setEditorTheme] = React.useState(theme === 'dark' ? 'vs-dark' : 'vs-light');
 
@@ -36,7 +36,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange =
 
     return (
         <Editor
-            height="100%"
+         
             defaultLanguage={language}
             defaultValue={value}
             onChange={onChange}

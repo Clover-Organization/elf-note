@@ -17,13 +17,13 @@ import MonacoEditor from './components/Editor/MonacoEditor';
 
 export function Home() {
     return (
-        <div className="grid h-screen w-full pl-[53px] overflow-hidden">
-            <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
-                <div className="border-b p-[6px] grid place-items-center">
+        <div className="grid h-screen w-full pl-[55px] overflow-hidden">
+            <aside className="inset-y fixed left-0 z-20 flex h-full flex-col border-r">
+                {/* <div className="border-b p-[6px] grid place-items-center">
                     <Button variant="outline" size="icon" aria-label="Home">
                         <img src={logo} className="size-5 fill-foreground h-full w-full" />
                     </Button>
-                </div>
+                </div> */}
                 <nav className="grid gap-1 p-2">
                     <Button
                         variant="ghost"
@@ -101,13 +101,20 @@ export function Home() {
                     </Button>
                 </nav>
             </aside>
-            <main className="w-full h-full ml-1">
-                <nav className='flex'>
-                    <ul className='flex justify-between items-center p-1 bg-primary-foreground w-20'>
-                        <li className='text-sm truncate'>Main.py</li>
-                        <Button variant={"ghost"} size={'icon'} className='w-4 h-4'>
-                            <X width={12} className='text-gray-600' />
-                        </Button>
+            <main className="w-full h-screen m-[1px]">
+                <nav>
+                    <ul className='flex w-[97vw] overflow-x-auto file-nav-custom-overflow'>
+                        {[...Array(25)].map((_, i) => (
+                            <li
+                                key={i}
+                                className='flex justify-between items-center min-w-24 max-w-32 bg-primary-foreground p-1'
+                            >
+                                <span className='text-sm truncate'>Main.py</span>
+                                <Button variant="ghost" size="icon" className='w-4 h-4'>
+                                    <X width={12} className='text-gray-600' />
+                                </Button>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
 
@@ -115,6 +122,7 @@ export function Home() {
 while True:
     print("Hello, World!")
     `} />
+
             </main>
         </div>
     )
